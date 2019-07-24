@@ -12,7 +12,12 @@ class m190723_233316_create_table_grupo extends Migration
      */
     public function safeUp()
     {
-
+        $this->createTable('Grupo', [
+            'id' => $this->primaryKey()->notNull(),
+            'nome' => $this->string(255)->notNull(),
+            'create_at' => $this->dateTime(),
+            'update_at' => $this->dateTime(),
+        ]);
     }
 
     /**
@@ -20,23 +25,6 @@ class m190723_233316_create_table_grupo extends Migration
      */
     public function safeDown()
     {
-        echo "m190723_233316_create_table_grupo cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('Grupo');
     }
-
-    /*
-    // Use up()/down() to run migration code without a transaction.
-    public function up()
-    {
-
-    }
-
-    public function down()
-    {
-        echo "m190723_233316_create_table_grupo cannot be reverted.\n";
-
-        return false;
-    }
-    */
 }
