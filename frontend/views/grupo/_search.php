@@ -16,6 +16,9 @@ use yii\widgets\ActiveForm;
     ]); ?>
 
     <div class="row">
+        <div class="col-md-3">
+            <?= $form->field($model, 'id') ?>
+        </div>
         <div class="col-md-6">
             <?= $form->field($model, 'nome') ?>
         </div>
