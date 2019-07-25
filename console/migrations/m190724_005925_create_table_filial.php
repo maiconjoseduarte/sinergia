@@ -30,7 +30,7 @@ class m190724_005925_create_table_filial extends Migration
             'update_at' => $this->dateTime(),
         ]);
 
-        $this->addForeignKey('filial_id_grupo', 'Filial', 'idGrupo', \frontend\models\Grupo::tableName(), 'id');
+        $this->addForeignKey('filial_id_grupo_grupo', 'Filial', 'idGrupo', \frontend\models\Grupo::tableName(), 'id');
 
     }
 
@@ -39,7 +39,7 @@ class m190724_005925_create_table_filial extends Migration
      */
     public function safeDown()
     {
-        $this->dropForeignKey('filial_id_grupo','Filial');
+        $this->dropForeignKey('filial_id_grupo_grupo','Filial');
         $this->dropTable('Filial');
     }
 
