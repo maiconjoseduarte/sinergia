@@ -4,7 +4,7 @@ use kartik\datecontrol\Module;
 
 
 return [
-    'name' => 'Sinergia',
+    'name' => 'Contratos & Sinergia',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',

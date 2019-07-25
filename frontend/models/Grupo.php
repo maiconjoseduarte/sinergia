@@ -61,4 +61,20 @@ class Grupo extends \yii\db\ActiveRecord
             'update_at' => 'Update At',
         ];
     }
+
+    static public function select2Data()
+    {
+        $results = [];
+
+        $grupos = self::find()->all();
+
+        /** @var Grupo[] $grupos */
+        if ($grupos != null) {
+            foreach ($grupos as $grupo) {
+                $results[$grupo->id] = "{$grupo->id} - {$grupo->nome}";
+            }
+        }
+
+        return $results;
+    }
 }
