@@ -13,9 +13,24 @@ use yii\db\Expression;
  * @property string $nome
  * @property string $create_at
  * @property string $update_at
+ * @property int $status
+ *
+ * @property Contrato[] $contratos
+ * @property Filial[] $filials
+ * @property Juridico[] $juridicos
  */
 class Grupo extends \yii\db\ActiveRecord
 {
+    const CONTRATO = 1;
+    const SINERGIA = 2;
+    const IMCUBADORA = 3;
+
+    public static $OPCOES_STATUS = [
+        self::CONTRATO => 'Contrato',
+        self::SINERGIA => 'Sinergia',
+        self::IMCUBADORA => 'Incubadora',
+    ];
+
     /**
      * {@inheritdoc}
      */
@@ -44,8 +59,11 @@ class Grupo extends \yii\db\ActiveRecord
         return [
             [['nome', 'id'], 'required'],
             [['id'], 'integer'],
+            [['id'], 'unique'],
             [['create_at', 'update_at'], 'safe'],
+            [['status'], 'integer'],
             [['nome'], 'string', 'max' => 255],
+            [['status'], 'in', 'range' => array_keys(self::$OPCOES_STATUS)]
         ];
     }
 
@@ -59,22 +77,31 @@ class Grupo extends \yii\db\ActiveRecord
             'nome' => 'Nome',
             'create_at' => 'Create At',
             'update_at' => 'Update At',
+            'status' => 'Status',
         ];
     }
 
-    static public function select2Data()
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getContratos()
     {
-        $results = [];
+        return $this->hasMany(Contrato::className(), ['idGrupo' => 'id']);
+    }
 
-        $grupos = self::find()->all();
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getFilials()
+    {
+        return $this->hasMany(Filial::className(), ['idGrupo' => 'id']);
+    }
 
-        /** @var Grupo[] $grupos */
-        if ($grupos != null) {
-            foreach ($grupos as $grupo) {
-                $results[$grupo->id] = "{$grupo->id} - {$grupo->nome}";
-            }
-        }
-
-        return $results;
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getJuridicos()
+    {
+        return $this->hasMany(Juridico::className(), ['idGrupo' => 'id']);
     }
 }

@@ -57,6 +57,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'id',
             'nome',
+            [
+                'attribute' => 'status',
+                'value' => function ($model) {
+                    /** @var \frontend\models\Grupo $model */
+                    return \frontend\models\Grupo::$OPCOES_STATUS[$model->status];
+                }
+            ],
         ],
     ]); ?>
 

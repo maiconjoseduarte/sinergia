@@ -18,7 +18,7 @@ class GrupoSearch extends Grupo
     {
         return [
             [['id'], 'integer'],
-            [['nome', 'create_at', 'update_at'], 'safe'],
+            [['nome', 'status'], 'safe'],
         ];
     }
 
@@ -59,8 +59,7 @@ class GrupoSearch extends Grupo
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'create_at' => $this->create_at,
-            'update_at' => $this->update_at,
+            'status' => $this->status
         ]);
 
         $query->andFilterWhere(['like', 'nome', $this->nome]);

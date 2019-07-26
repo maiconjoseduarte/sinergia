@@ -67,6 +67,7 @@ class GrupoController extends Controller
         $model = new Grupo();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->addFlash('success', 'Grupo cadastrado com sucesso.');
             return $this->redirect(['create']);
         }
 

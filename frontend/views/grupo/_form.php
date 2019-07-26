@@ -19,6 +19,9 @@ use yii\widgets\ActiveForm;
         <div class="col-md-6">
             <?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>
         </div>
+        <div class="col-md-3">
+            <?= $form->field($model, 'status')->dropDownList(\frontend\models\Grupo::$OPCOES_STATUS) ?>
+        </div>
     </div>
 
     <div class="form-group">
