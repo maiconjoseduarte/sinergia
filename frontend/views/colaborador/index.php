@@ -6,17 +6,21 @@ use kartik\grid\GridView;
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
-/* @var $searchModel frontend\models\GrupoSearch */
+/* @var $searchModel frontend\models\ColaboradorSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Grupos';
+$this->title = 'Colaboradors';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="grupo-index">
+<div class="colaborador-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
+    <p>
+        <?= Html::a('Create Colaborador', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
+
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -58,27 +62,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'nome',
             [
-                'attribute' => 'status',
+                'attribute' => 'cargo',
                 'value' => function ($model) {
-                    /** @var \frontend\models\Grupo $model */
-                    return \frontend\models\Grupo::$OPCOES_STATUS[$model->status];
-                }
-            ],
-            [
-                'attribute' => 'idGestor',
-                'value' => function ($model) {
-                    /** @var \frontend\models\Grupo $model */
-                    return $model->gestor->nome ?? '';
-                }
-            ],
-            [
-                'attribute' => 'idSuporte',
-                'value' => function ($model) {
-                    /** @var \frontend\models\Grupo $model */
-                    return $model->suporte->nome ?? '';
+                    /** @var \frontend\models\Colaborador $model */
+                    return \frontend\models\Colaborador::$OPCOES_CARGO[$model->cargo];
                 }
             ],
         ],
     ]); ?>
+
 
 </div>

@@ -41,6 +41,7 @@ AppAsset::register($this);
         ['label' => 'Filial', 'url' => ['/filial/index']],
         ['label' => 'Contrato', 'url' => ['/contrato/index']],
         ['label' => 'Juridico', 'url' => ['/juridico/index']],
+        ['label' => 'Colaborador', 'url' => ['/colaborador/index']],
 //        ['label' => 'About', 'url' => ['/site/about']],
 //        ['label' => 'Contact', 'url' => ['/site/contact']],
     ];

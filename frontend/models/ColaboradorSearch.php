@@ -4,12 +4,12 @@ namespace frontend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\Grupo;
+use frontend\models\Colaborador;
 
 /**
- * GrupoSearch represents the model behind the search form of `frontend\models\Grupo`.
+ * ColaboradorSearch represents the model behind the search form of `frontend\models\Colaborador`.
  */
-class GrupoSearch extends Grupo
+class ColaboradorSearch extends Colaborador
 {
     /**
      * {@inheritdoc}
@@ -18,7 +18,7 @@ class GrupoSearch extends Grupo
     {
         return [
             [['id'], 'integer'],
-            [['nome', 'status', 'idGestor', 'idSuporte'], 'safe'],
+            [['nome', 'cargo'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class GrupoSearch extends Grupo
      */
     public function search($params)
     {
-        $query = Grupo::find();
+        $query = Colaborador::find();
 
         // add conditions that should always apply here
 
@@ -59,12 +59,10 @@ class GrupoSearch extends Grupo
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'status' => $this->status,
-            'idGestor' => $this->idGestor,
-            'idSuporte' => $this->idSuporte
         ]);
 
-        $query->andFilterWhere(['like', 'nome', $this->nome]);
+        $query->andFilterWhere(['like', 'nome', $this->nome])
+            ->andFilterWhere(['like', 'cargo', $this->cargo]);
 
         return $dataProvider;
     }
