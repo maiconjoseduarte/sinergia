@@ -47,7 +47,8 @@ use yii\widgets\ActiveForm;
     </div>
 
     <div class="form-group">
-        <?= Html::submitButton('Salvar', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Salvar', ['class' => \common\components\Layout::BTN_SALVAR]) ?>
+        <?= Html::a('Voltar', \yii\helpers\Url::to(['index']), ['class' => \common\components\Layout::BTN_VOLTAR]) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

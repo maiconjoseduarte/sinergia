@@ -8,8 +8,8 @@ use yii\helpers\Url;
         <a class="dropdown-toggle d-flex align-items-center justify-content-between" href="#" data-toggle="dropdown" id="profileDropdown1">
             <img src="admin/images/face29.png" alt="profile" class="sidebar-profile-icon"/>
             <div>
-                <div class="nav-profile-name">Lucille Wilkins</div>
-                <div class="nav-profile-designation">Mid term business</div>
+                <div class="nav-profile-name">Monica Francisco</div>
+                <div class="nav-profile-designation">Coordenadora</div>
             </div>
         </a>
         <div class="dropdown-menu navbar-dropdown dropdown-menu-left" aria-labelledby="profileDropdown1">

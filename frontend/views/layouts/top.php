@@ -43,7 +43,7 @@
             <li class="nav-item count-indicator nav-profile dropdown">
                 <span class="count">3</span>
                 <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                    <span class="nav-profile-name">Hi, Lucille Wilkins</span>
+                    <span class="nav-profile-name">Olá, Monica Francisco</span>
                     <img src="admin/images/face28.png" alt="profile"/>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">

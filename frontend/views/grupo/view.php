@@ -6,34 +6,33 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Grupo */
 
-$this->title = $model->id;
+$this->title = $model->id. ' - '. $model->nome;
 $this->params['breadcrumbs'][] = ['label' => 'Grupos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="grupo-view">
+<div class="d-sm-flex justify-content-between align-items-center my-3">
+    <h3 class="text-dark font-weight-medium"><?= $this->title ?></h3>
+    <div class="link-btn-group d-flex justify-content-start align-items-start">
+    </div>
+</div>
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+                <?= DetailView::widget([
+                    'model' => $model,
+                    'attributes' => [
+                        'id',
+                        'nome',
+                        'create_at',
+                        'update_at',
+                    ],
+                ]) ?>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'nome',
-            'create_at',
-            'update_at',
-        ],
-    ]) ?>
-
+            </div>
+        </div>
+    </div>
 </div>
