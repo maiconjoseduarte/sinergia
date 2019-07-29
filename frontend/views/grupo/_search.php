@@ -48,6 +48,9 @@ use yii\widgets\ActiveForm;
                 ],
             ]) ?>
         </div>
+        <div class="col-md-3">
+            <?= $form->field($model, 'pageSize')->dropDownList(\frontend\models\GrupoSearch::$OPCOES_PAGINACAO) ?>
+        </div>
     </div>
 
     <div class="form-group">

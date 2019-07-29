@@ -11,6 +11,10 @@ use frontend\models\Filial;
  */
 class FilialSearch extends Filial
 {
+    public $pageSize = 20;
+
+    public static $OPCOES_PAGINACAO = [20 => '20 resultados', 50 => '50 resultados', 100 => '100 resultados'];
+
     /**
      * {@inheritdoc}
      */
@@ -19,6 +23,7 @@ class FilialSearch extends Filial
         return [
             [['id', 'idGrupo', 'codIsoWeb', 'codResponsavel', 'icms', 'ledTime'], 'integer'],
             [['nome', 'documento', 'uf', 'especialidade', 'nomeResponsavel', 'nomeSuporte', 'cdFaturamento', 'create_at', 'update_at'], 'safe'],
+            ['pageSize', 'in', 'range' => array_keys(self::$OPCOES_PAGINACAO)],
         ];
     }
 
@@ -32,6 +37,16 @@ class FilialSearch extends Filial
     }
 
     /**
+     * @return array
+     */
+    public function attributeLabels()
+    {
+        return [
+            'pageSize' => 'Paginação',
+        ];
+    }
+
+    /**
      * Creates data provider instance with search query applied
      *
      * @param array $params
@@ -41,14 +56,14 @@ class FilialSearch extends Filial
     public function search($params)
     {
         $query = Filial::find();
+        $this->load($params);
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => ['pageSize' => $this->pageSize]
         ]);
-
-        $this->load($params);
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails

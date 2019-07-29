@@ -11,6 +11,10 @@ use frontend\models\Grupo;
  */
 class GrupoSearch extends Grupo
 {
+    public $pageSize = 20;
+
+    public static $OPCOES_PAGINACAO = [20 => '20 resultados', 50 => '50 resultados', 100 => '100 resultados'];
+
     /**
      * {@inheritdoc}
      */
@@ -19,6 +23,7 @@ class GrupoSearch extends Grupo
         return [
             [['id'], 'integer'],
             [['nome', 'status', 'idGestor', 'idSuporte'], 'safe'],
+            ['pageSize', 'in', 'range' => array_keys(self::$OPCOES_PAGINACAO)],
         ];
     }
 
@@ -32,6 +37,16 @@ class GrupoSearch extends Grupo
     }
 
     /**
+     * @return array
+     */
+    public function attributeLabels()
+    {
+        return [
+            'pageSize' => 'Paginação',
+        ];
+    }
+
+    /**
      * Creates data provider instance with search query applied
      *
      * @param array $params
@@ -41,14 +56,15 @@ class GrupoSearch extends Grupo
     public function search($params)
     {
         $query = Grupo::find();
+        $this->load($params);
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => ['pageSize' => $this->pageSize]
         ]);
 
-        $this->load($params);
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
