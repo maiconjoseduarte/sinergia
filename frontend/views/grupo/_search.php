@@ -51,9 +51,9 @@ use yii\widgets\ActiveForm;
     </div>
 
     <div class="form-group">
-        <?= Html::submitButton('Filtar', ['class' => \common\components\Layout::BTN_FILTRAR]) ?>
-        <?= Html::resetButton('Reset', ['class' => \common\components\Layout::BTN_RESET]) ?>
-<!--        --><?php //Html::a('Cadastrar novo', ['create'], ['class' => 'btn btn-success pull-right']) ?>
+        <?= Html::submitButton('Filtar', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+        <?= Html::a('Cadastrar novo', ['create'], ['class' => 'btn btn-success pull-right']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
