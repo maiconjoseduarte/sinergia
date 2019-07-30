@@ -15,10 +15,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Cadastrar Contrato', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
     <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
@@ -58,24 +54,22 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
                 },
             ],
-            'id',
-            'idGrupo',
-            'dataInicio',
-            'totalReceitaLiquidaInicio',
-            'margemBrutaPonderada',
-            //'dataUltimaRenovacao',
-            //'vencimento',
-            //'reajustePonderado',
-            //'margemBrutaPonderadaRenovacao',
-            //'totalReceitaLiquidaRenovacao',
-            //'condicaoPagamento',
-            //'minimo',
-            //'numeroLeitos',
-            //'tabela',
-            //'icms',
-            //'enquadramento',
-            //'nomeGestor',
-
+            [
+                'attribute' => 'idGrupo',
+                'vAlign' => 'middle',
+            ],
+            [
+                'attribute' => 'dataInicio',
+                'vAlign' => 'middle',
+            ],
+            [
+                'attribute' => 'totalReceitaLiquidaInicio',
+                'vAlign' => 'middle',
+            ],
+            [
+                'attribute' => 'margemBrutaPonderada',
+                'vAlign' => 'middle',
+            ],
         ],
     ]); ?>
 

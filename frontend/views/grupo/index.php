@@ -55,10 +55,17 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
                 },
             ],
-            'id',
-            'nome',
+            [
+                'attribute' => 'id',
+                'vAlign' => 'middle',
+            ],
+            [
+                'attribute' => 'nome',
+                'vAlign' => 'middle',
+            ],
             [
                 'attribute' => 'status',
+                'vAlign' => 'middle',
                 'value' => function ($model) {
                     /** @var \frontend\models\Grupo $model */
                     return \frontend\models\Grupo::$OPCOES_STATUS[$model->status];
@@ -66,6 +73,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'attribute' => 'idGestor',
+                'vAlign' => 'middle',
                 'value' => function ($model) {
                     /** @var \frontend\models\Grupo $model */
                     return $model->gestor->nome ?? '';
@@ -73,6 +81,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'attribute' => 'idSuporte',
+                'vAlign' => 'middle',
                 'value' => function ($model) {
                     /** @var \frontend\models\Grupo $model */
                     return $model->suporte->nome ?? '';

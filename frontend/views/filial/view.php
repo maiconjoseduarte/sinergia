@@ -30,7 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'idGrupo',
+            [
+                'attribute' => 'idGrupo',
+                'value' => function ($model) {
+                    /** @var \frontend\models\Filial $model */
+                    return "{$model->idGrupo} - {$model->grupo->nome}";
+                }
+            ],
             'nome',
             'codIsoWeb',
             'documento',
@@ -41,9 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'nomeSuporte',
             'icms',
             'cdFaturamento',
-            'ledTime:datetime',
-            'create_at',
-            'update_at',
+            'ledTime',
         ],
     ]) ?>
 

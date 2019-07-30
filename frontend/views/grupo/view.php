@@ -31,8 +31,27 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'nome',
-            'create_at',
-            'update_at',
+            [
+                'attribute' => 'status',
+                'value' => function ($model) {
+                    /** @var \frontend\models\Grupo $model */
+                    return \frontend\models\Grupo::$OPCOES_STATUS[$model->status];
+                }
+            ],
+            [
+                'attribute' => 'idGestor',
+                'value' => function ($model) {
+                    /** @var \frontend\models\Grupo $model */
+                    return $model->gestor->nome ?? '';
+                }
+            ],
+            [
+                'attribute' => 'idSuporte',
+                'value' => function ($model) {
+                    /** @var \frontend\models\Grupo $model */
+                    return $model->suporte->nome ?? '';
+                }
+            ],
         ],
     ]) ?>
 

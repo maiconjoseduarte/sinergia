@@ -59,7 +59,7 @@ class Contrato extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['idGrupo', 'id'], 'required'],
+            [['idGrupo'], 'required'],
             [['idGrupo', 'numeroLeitos', 'icms', 'enquadramento'], 'integer'],
             [['dataInicio', 'dataUltimaRenovacao', 'vencimento', 'create_at', 'update_at'], 'safe'],
             [['totalReceitaLiquidaInicio', 'margemBrutaPonderada', 'reajustePonderado', 'margemBrutaPonderadaRenovacao', 'totalReceitaLiquidaRenovacao', 'minimo'], 'number'],
@@ -75,7 +75,7 @@ class Contrato extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'idGrupo' => 'Id Grupo',
+            'idGrupo' => 'Grupo',
             'dataInicio' => 'Data Inicio',
             'totalReceitaLiquidaInicio' => 'Total Receita Liquida Inicio',
             'margemBrutaPonderada' => 'Margem Bruta Ponderada',

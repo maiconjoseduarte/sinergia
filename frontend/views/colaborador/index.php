@@ -9,18 +9,14 @@ use yii\helpers\Url;
 /* @var $searchModel frontend\models\ColaboradorSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Colaboradors';
+$this->title = 'Colaboradores';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="colaborador-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Create Colaborador', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -59,10 +55,17 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
                 },
             ],
-            'id',
-            'nome',
+            [
+                'attribute' => 'id',
+                'vAlign' => 'middle',
+            ],
+            [
+                'attribute' => 'nome',
+                'vAlign' => 'middle',
+            ],
             [
                 'attribute' => 'cargo',
+                'vAlign' => 'middle',
                 'value' => function ($model) {
                     /** @var \frontend\models\Colaborador $model */
                     return \frontend\models\Colaborador::$OPCOES_CARGO[$model->cargo];

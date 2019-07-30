@@ -50,7 +50,7 @@ class Colaborador extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
+            'id' => 'Código',
             'nome' => 'Nome',
             'cargo' => 'Cargo',
         ];

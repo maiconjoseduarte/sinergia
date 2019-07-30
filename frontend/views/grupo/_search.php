@@ -32,7 +32,7 @@ use yii\widgets\ActiveForm;
         <div class="col-md-3">
             <?= $form->field($model, 'idGestor')->widget(\kartik\select2\Select2::className(), [
                 'data' => Colaborador::select2Data(Colaborador::GESTOR),
-                'options' => ['placeholder' => 'Select a state ...'],
+                'options' => ['placeholder' => 'Selecione ...'],
                 'pluginOptions' => [
                     'allowClear' => true
                 ],
@@ -42,7 +42,7 @@ use yii\widgets\ActiveForm;
         <div class="col-md-3">
             <?= $form->field($model, 'idSuporte')->widget(\kartik\select2\Select2::className(), [
                 'data' => Colaborador::select2Data(Colaborador::SUPORTE),
-                'options' => ['placeholder' => 'Select a state ...'],
+                'options' => ['placeholder' => 'Selecione ...'],
                 'pluginOptions' => [
                     'allowClear' => true
                 ],
@@ -56,7 +56,7 @@ use yii\widgets\ActiveForm;
     <div class="form-group">
         <?= Html::submitButton('Filtar', ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
-        <?= Html::a('Cadastrar novo', ['create'], ['class' => 'btn btn-success pull-right']) ?>
+        <?= Html::a('Cadastrar', ['create'], ['class' => 'btn btn-success pull-right']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

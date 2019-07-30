@@ -1,5 +1,6 @@
 <?php
 
+use kartik\datecontrol\DateControl;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -17,9 +18,6 @@ $data = \frontend\models\Grupo::select2Data();
 
     <div class="row">
         <div class="col-md-3">
-            <?= $form->field($model, 'id')->textInput() ?>
-        </div>
-        <div class="col-md-3">
             <?= $form->field($model, 'idGrupo')->widget(\kartik\select2\Select2::className(), [
                 'data' => $data,
                 'options' => ['placeholder' => 'Select a state ...'],
@@ -29,10 +27,40 @@ $data = \frontend\models\Grupo::select2Data();
             ]) ?>
         </div>
         <div class="col-md-3">
-            <?= $form->field($model, 'dataInicio')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'dataInicio')->widget(DateControl::classname(), [
+                'type' => DateControl::FORMAT_DATE,
+                'displayFormat' => 'php: d/M/Y',
+                'widgetOptions' => [
+                    'pluginOptions' => [
+                        'viewMode' => 0,
+                        'minViewMode' => 0
+                    ]
+                ],
+            ]) ?>
         </div>
         <div class="col-md-3">
-            <?= $form->field($model, 'totalReceitaLiquidaInicio')->textInput() ?>
+            <?= $form->field($model, 'dataUltimaRenovacao')->widget(DateControl::classname(), [
+                'type' => DateControl::FORMAT_DATE,
+                'displayFormat' => 'php: d/M/Y',
+                'widgetOptions' => [
+                    'pluginOptions' => [
+                        'viewMode' => 0,
+                        'minViewMode' => 0
+                    ]
+                ],
+            ]) ?>
+        </div>
+        <div class="col-md-3">
+            <?= $form->field($model, 'vencimento')->widget(DateControl::classname(), [
+                'type' => DateControl::FORMAT_DATE,
+                'displayFormat' => 'php: d/M/Y',
+                'widgetOptions' => [
+                    'pluginOptions' => [
+                        'viewMode' => 0,
+                        'minViewMode' => 0
+                    ]
+                ],
+            ]) ?>
         </div>
     </div>
 
@@ -40,11 +68,9 @@ $data = \frontend\models\Grupo::select2Data();
         <div class="col-md-3">
             <?= $form->field($model, 'margemBrutaPonderada')->textInput() ?>
         </div>
+
         <div class="col-md-3">
-            <?= $form->field($model, 'dataUltimaRenovacao')->textInput() ?>
-        </div>
-        <div class="col-md-3">
-            <?= $form->field($model, 'vencimento')->textInput() ?>
+            <?= $form->field($model, 'totalReceitaLiquidaInicio')->textInput() ?>
         </div>
         <div class="col-md-3">
             <?= $form->field($model, 'reajustePonderado')->textInput() ?>
@@ -89,7 +115,7 @@ $data = \frontend\models\Grupo::select2Data();
 
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Salvar', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

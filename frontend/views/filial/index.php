@@ -57,14 +57,28 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'attribute' => 'idGrupo',
+                'vAlign' => 'middle',
             ],
             [
                 'attribute' => 'grupo.nome',
+                'vAlign' => 'middle',
             ],
-            'id',
-            'nome',
-            'codIsoWeb',
-            'documento',
+            [
+                'attribute' => 'id',
+                'vAlign' => 'middle',
+            ],
+            [
+                'attribute' => 'nome',
+                'vAlign' => 'middle',
+            ],
+            [
+                'attribute' => 'codIsoWeb',
+                'vAlign' => 'middle',
+            ],
+            [
+                'attribute' => 'documento',
+                'vAlign' => 'middle',
+            ],
         ],
     ]); ?>
 

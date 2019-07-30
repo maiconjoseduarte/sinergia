@@ -31,7 +31,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'nome',
-            'cargo',
+            [
+                'attribute' => 'cargo',
+                'value' => function ($model) {
+                    /** @var \frontend\models\Colaborador $model */
+                    return \frontend\models\Colaborador::$OPCOES_CARGO[$model->cargo];
+                }
+            ],
         ],
     ]) ?>
 

@@ -12,14 +12,20 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id')->textInput() ?>
-
-    <?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'cargo')->dropDownList(\frontend\models\Colaborador::$OPCOES_CARGO) ?>
+    <div class="row">
+        <div class="col-md-3">
+            <?= $form->field($model, 'id')->textInput() ?>
+        </div>
+        <div class="col-md-6">
+            <?= $form->field($model, 'nome')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-md-3">
+            <?= $form->field($model, 'cargo')->dropDownList(\frontend\models\Colaborador::$OPCOES_CARGO) ?>
+        </div>
+    </div>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Salvar', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

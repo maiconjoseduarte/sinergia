@@ -16,10 +16,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Cadastrar Juridico', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
     <?php echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
@@ -59,23 +55,22 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
                 },
             ],
-
-            'id',
-            'idGrupo',
-            'status',
-            'dataInicio',
-            'dataUltimaRenovacao',
-            //'vencimento',
-            //'multa',
-            //'juros',
-            //'minutaAditivo',
-            //'statusAtual',
-            //'comentario',
-            //'nomeResponsavel',
-            //'email:email',
-            //'telefone',
-            //'create_at',
-            //'update_at',
+            [
+                'attribute' => 'idGrupo',
+                'vAlign' => 'middle',
+            ],
+            [
+                'attribute' => 'status',
+                'vAlign' => 'middle',
+            ],
+            [
+                'attribute' => 'dataInicio',
+                'vAlign' => 'middle',
+            ],
+            [
+                'attribute' => 'dataUltimaRenovacao',
+                'vAlign' => 'middle',
+            ],
         ],
     ]); ?>
 

@@ -42,6 +42,11 @@ class GrupoSearch extends Grupo
     public function attributeLabels()
     {
         return [
+            'id' => 'Código',
+            'nome' => 'Nome',
+            'status' => 'Status',
+            'idGestor' => 'Gestor',
+            'idSuporte' => 'Suporte',
             'pageSize' => 'Paginação',
         ];
     }

@@ -37,6 +37,8 @@ $data = \frontend\models\Grupo::select2Data();
     <div class="form-group">
         <?= Html::submitButton('Filtrar', ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+        <?= Html::a('Cadastrar', ['create'], ['class' => 'btn btn-success pull-right']) ?>
+
     </div>
 
     <?php ActiveForm::end(); ?>
