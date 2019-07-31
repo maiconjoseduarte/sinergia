@@ -27,7 +27,7 @@ LoginAsset::register($this);
     <div class="row">
         <div class="login-container col-lg-4 col-md-6 col-sm-8 col-xs-12">
             <div class="login-title text-center">
-                <h2><span>Contratos<strong> & </strong>Sinergias</span></h2>
+                <h2><span>Contrato<strong> & </strong>Sinergia</span></h2>
             </div>
             <?= Alert::widget() ?>
             <?= $content ?>
