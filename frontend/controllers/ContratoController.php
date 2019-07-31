@@ -2,17 +2,17 @@
 
 namespace frontend\controllers;
 
+use common\components\AuthController;
 use Yii;
 use frontend\models\Contrato;
 use frontend\models\ContratoSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * ContratoController implements the CRUD actions for Contrato model.
  */
-class ContratoController extends Controller
+class ContratoController extends AuthController
 {
     /**
      * {@inheritdoc}

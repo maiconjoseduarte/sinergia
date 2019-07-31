@@ -10,32 +10,36 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to login:</p>
-
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
-                <div style="color:#999;margin:1em 0">
-                    If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
-                    <br>
-                    Need new verification email? <?= Html::a('Resend', ['site/resend-verification-email']) ?>
-                </div>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
-        </div>
+<div class="login-content">
+    <div class="login-header ">
+        <h3><strong>Entrar</strong></h3>
     </div>
+    <div class="login-body">
+
+        <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+
+        <div class="form-group ">
+            <div class="pos-r">
+                <?php echo $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder' => 'Username'])->label('') ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="pos-r">
+                <?= $form->field($model, 'password')->passwordInput( ['placeholder' => 'Password'])->label('') ?>
+            </div>
+        </div>
+        <div class="form-group text-right">
+            <a href="#" class="bold"> Forgot password?</a>
+        </div>
+
+        <div class="form-group">
+            <?= Html::submitButton('Login', ['class' => 'btn btn-primary form-control']) ?>
+        </div>
+        <?php ActiveForm::end(); ?>
+
+    </div>
+</div>
+<div class="login-footer text-center template">
+    <h5>Não tem uma conta? <?= Html::a(' Criar uma', \yii\helpers\Url::to(['/site/signup'])) ?> </h5>
 </div>

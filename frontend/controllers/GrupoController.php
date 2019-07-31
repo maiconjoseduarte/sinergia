@@ -2,17 +2,17 @@
 
 namespace frontend\controllers;
 
+use common\components\AuthController;
 use Yii;
 use frontend\models\Grupo;
 use frontend\models\GrupoSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * GrupoController implements the CRUD actions for Grupo model.
  */
-class GrupoController extends Controller
+class GrupoController extends AuthController
 {
 //    public $layout = 'admin';
     /**

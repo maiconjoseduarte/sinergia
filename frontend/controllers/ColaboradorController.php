@@ -2,17 +2,17 @@
 
 namespace frontend\controllers;
 
+use common\components\AuthController;
 use Yii;
 use frontend\models\Colaborador;
 use frontend\models\ColaboradorSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * ColaboradorController implements the CRUD actions for Colaborador model.
  */
-class ColaboradorController extends Controller
+class ColaboradorController extends AuthController
 {
     /**
      * {@inheritdoc}

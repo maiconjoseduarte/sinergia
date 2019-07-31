@@ -2,17 +2,17 @@
 
 namespace frontend\controllers;
 
+use common\components\AuthController;
 use Yii;
 use frontend\models\Filial;
 use frontend\models\FilialSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * FilialController implements the CRUD actions for Filial model.
  */
-class FilialController extends Controller
+class FilialController extends AuthController
 {
     /**
      * {@inheritdoc}

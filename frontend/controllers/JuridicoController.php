@@ -2,17 +2,17 @@
 
 namespace frontend\controllers;
 
+use common\components\AuthController;
 use Yii;
 use frontend\models\Juridico;
 use frontend\models\JuridicoSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * JuridicoController implements the CRUD actions for Juridico model.
  */
-class JuridicoController extends Controller
+class JuridicoController extends AuthController
 {
     /**
      * {@inheritdoc}
