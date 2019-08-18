@@ -15,10 +15,10 @@ class MasterAsset extends AssetBundle
         'dist/css/AdminLTE.min.css',
         'dist/css/skins/_all-skins.min.css',
         'bower_components/morris.js/morris.css',
-        'bower_components/jvectormap/jquery-jvectormap.css',
-        'bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css',
-        'bower_components/bootstrap-daterangepicker/daterangepicker.css',
-        'plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css',
+//        'bower_components/jvectormap/jquery-jvectormap.css',
+//        'bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css',
+//        'bower_components/bootstrap-daterangepicker/daterangepicker.css',
+//        'plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css',
         'dist/css/style.css',
     ];
 
