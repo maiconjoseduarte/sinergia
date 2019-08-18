@@ -13,13 +13,14 @@ $this->params['breadcrumbs'][] = ['label' => 'Grupos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="grupo-view">
+<div class="box">
+    <div class="box-header">
+        <h2><?= Html::encode($this->title) ?></h2>
+    </div>
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <br><br>
-    <row>
-        <div class="col-md-2" >
+    <div class="box-body">
+    <div class="row">
+        <div class="col-md-2">
             <?= Html::button('Informações Gerais', [
                 'id' => 'info-gerais',
                 'class' => Layout::BTN_OPCOES_GRUPO
@@ -77,8 +78,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </div>
         </div>
-    </row>
-
+    </div>
+</div>
 </div>
 
 <?php

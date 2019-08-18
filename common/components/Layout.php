@@ -11,7 +11,16 @@ namespace common\components;
 class Layout
 {
     // SISTEMA
-    const GRID_LAYOUT = "\n{items}\n<div class='col-md-10'>{pager}</div><div class='col-md-2' style='margin-top: 25px; text-align: right'>{summary}</div>";
+    const GRID_LAYOUT = "\n{items}\n
+<div class='row'>
+    <div class='col-md-8'>
+        {pager}
+    </div>
+    <div class='col-md-4' style='float: right; margin-top: 25px; text-align: right'>
+        {summary}
+    </div>
+</div>
+";
 
 
     const BTN_CADASTRAR = 'btn btn-success pull-right btn-estilos';
