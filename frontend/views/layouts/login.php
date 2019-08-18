@@ -3,11 +3,11 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-use frontend\assets\LoginAsset;
+use frontend\assets\MasterAsset;
 use yii\helpers\Html;
 use common\widgets\Alert;
 
-LoginAsset::register($this);
+MasterAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -20,21 +20,27 @@ LoginAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+<body class="hold-transition login-page">
 <?php $this->beginBody() ?>
 
-<div class="container ">
-    <div class="row">
-        <div class="login-container col-lg-4 col-md-6 col-sm-8 col-xs-12">
-            <div class="login-title text-center">
-                <h2><span>Contrato<strong> & </strong>Sinergia</span></h2>
-            </div>
-            <?= Alert::widget() ?>
-            <?= $content ?>
-        </div>
+<div class="login-box">
+    <div class="login-logo">
+        <h2><span>Contrato<strong> & </strong>Sinergia</span></h2>
     </div>
-</div>
 
+    <?= Alert::widget() ?>
+    <?= $content ?>
+
+</div>
+<!--<script>-->
+<!--    $(function () {-->
+<!--        $('input').iCheck({-->
+<!--            checkboxClass: 'icheckbox_square-blue',-->
+<!--            radioClass: 'iradio_square-blue',-->
+<!--            increaseArea: '20%' /* optional */-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
 
 <?php $this->endBody() ?>
 </body>

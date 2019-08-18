@@ -10,36 +10,32 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<div class="login-box-body">
+    <p class="login-box-msg">Sign in to start your session</p>
 
-<div class="login-content">
-    <div class="login-header ">
-        <h3><strong>Entrar</strong></h3>
-    </div>
-    <div class="login-body">
-
-        <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-
-        <div class="form-group ">
-            <div class="pos-r">
-                <?php echo $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder' => 'Username'])->label('') ?>
+    <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+        <div class="form-group has-feedback">
+            <?php echo $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder' => 'Username'])->label('') ?>
+        </div>
+        <div class="form-group has-feedback" style="margin-top: -20px">
+            <?= $form->field($model, 'password')->passwordInput( ['placeholder' => 'Password'])->label('') ?>
+        </div>
+        <div class="row">
+            <div class="col-xs-8">
+            </div>
+            <div class="col-xs-4">
+                <?= Html::submitButton('Entrar', ['class' => 'btn btn-primary form-control']) ?>
             </div>
         </div>
-        <div class="form-group">
-            <div class="pos-r">
-                <?= $form->field($model, 'password')->passwordInput( ['placeholder' => 'Password'])->label('') ?>
-            </div>
-        </div>
-        <div class="form-group text-right">
-            <a href="#" class="bold"> Forgot password?</a>
-        </div>
+    <?php ActiveForm::end(); ?>
 
-        <div class="form-group">
-            <?= Html::submitButton('Login', ['class' => 'btn btn-primary form-control']) ?>
-        </div>
-        <?php ActiveForm::end(); ?>
-
+    <div class="social-auth-links text-center">
+        <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
+            Facebook</a>
+        <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
+            Google+</a>
     </div>
-</div>
-<div class="login-footer text-center template">
-    <h5>Não tem uma conta? <?= Html::a(' Criar uma', \yii\helpers\Url::to(['/site/signup'])) ?> </h5>
+
+    <?= Html::a(' Criar uma nova conta', \yii\helpers\Url::to(['/site/signup'])) ?>
+
 </div>
