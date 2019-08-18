@@ -11,34 +11,26 @@ $this->params['breadcrumbs'][] = ['label' => 'Colaboradors', 'url' => ['index']]
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="colaborador-view">
+<div class="box">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <div class="box-header">
+        <h2><?= Html::encode($this->title) ?></h2>
+    </div>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
+    <div class="box-body">
+        <?= DetailView::widget([
+            'model' => $model,
+            'attributes' => [
+                'id',
+                'nome',
+                [
+                    'attribute' => 'cargo',
+                    'value' => function ($model) {
+                        /** @var \frontend\models\Colaborador $model */
+                        return \frontend\models\Colaborador::$OPCOES_CARGO[$model->cargo];
+                    }
+                ],
             ],
         ]) ?>
-    </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'nome',
-            [
-                'attribute' => 'cargo',
-                'value' => function ($model) {
-                    /** @var \frontend\models\Colaborador $model */
-                    return \frontend\models\Colaborador::$OPCOES_CARGO[$model->cargo];
-                }
-            ],
-        ],
-    ]) ?>
-
+    </div>
 </div>

@@ -106,4 +106,3 @@ $data = \frontend\models\Grupo::select2Data();
 
     <?php ActiveForm::end(); ?>
 
-</div>

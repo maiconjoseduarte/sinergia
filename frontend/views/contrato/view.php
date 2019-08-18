@@ -11,44 +11,36 @@ $this->params['breadcrumbs'][] = ['label' => 'Contratos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="contrato-view">
+<div class="box">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <div class="box-header">
+        <h2><?= Html::encode($this->title) ?></h2>
+    </div>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
+    <div class="box-body">
+        <?= DetailView::widget([
+            'model' => $model,
+            'attributes' => [
+                'id',
+                'idGrupo',
+                'dataInicio',
+                'totalReceitaLiquidaInicio',
+                'margemBrutaPonderada',
+                'dataUltimaRenovacao',
+                'vencimento',
+                'reajustePonderado',
+                'margemBrutaPonderadaRenovacao',
+                'totalReceitaLiquidaRenovacao',
+                'condicaoPagamento',
+                'minimo',
+                'numeroLeitos',
+                'tabela',
+                'icms',
+                'enquadramento',
+                'nomeGestor',
+                'create_at',
+                'update_at',
             ],
         ]) ?>
-    </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'idGrupo',
-            'dataInicio',
-            'totalReceitaLiquidaInicio',
-            'margemBrutaPonderada',
-            'dataUltimaRenovacao',
-            'vencimento',
-            'reajustePonderado',
-            'margemBrutaPonderadaRenovacao',
-            'totalReceitaLiquidaRenovacao',
-            'condicaoPagamento',
-            'minimo',
-            'numeroLeitos',
-            'tabela',
-            'icms',
-            'enquadramento',
-            'nomeGestor',
-            'create_at',
-            'update_at',
-        ],
-    ]) ?>
-
+    </div>
 </div>
