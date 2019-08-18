@@ -1,0 +1,28 @@
+
+.box{
+    position: relative;
+    background: #fff;
+    border: 1px solid #f4f4f4;
+    padding: 0px 20px 20px 20px;
+    margin-top: 10px;
+    box-shadow: 7px 7px 8px grey;
+}
+.box-header{
+    border-bottom: 1px solid #eee;
+}
+
+.box-header h2{
+    text-transform: uppercase;
+}
+.box-body{
+    margin-top: 10px;
+}
+
+.box-title-grupo {
+    text-transform: uppercase;
+}
+
+.btn-opcoes-grupo {
+    margin-top: 5px;
+    width: 99%;
+}
