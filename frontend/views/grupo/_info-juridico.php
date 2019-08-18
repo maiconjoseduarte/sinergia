@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $model frontend\models\Grupo */
 
 ?>
-<h3>Informações Jurídico</h3>
+<h3 class="box-title-grupo">Informações Jurídico</h3>
 <hr>
 <p></p>
 

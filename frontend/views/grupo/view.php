@@ -41,6 +41,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => Layout::BTN_OPCOES_GRUPO
             ])?>
 
+            <hr style="margin-top: 60px; border-top: 1px solid #eee">
+            <?= Html::a('Voltar', \yii\helpers\Url::to(['grupo/index']), [
+                'class' => Layout::BTN_OPCOES_GRUPO
+            ])?>
+
         </div>
 
         <div class="col-md-10 col-xs-8" id="conteudo" >

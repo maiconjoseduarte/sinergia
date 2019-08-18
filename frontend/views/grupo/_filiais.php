@@ -9,7 +9,7 @@ use kartik\grid\GridView;
 
 $ss= $model->filiais;
 ?>
-<h3>Filiais</h3>
+<h3 class="box-title-grupo">Filiais</h3>
 <hr>
 <p></p>
 

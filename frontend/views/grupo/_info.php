@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 
 ?>
 
-<h3>Informações Gerais</h3>
+<h3 class="box-title-grupo">Informações Gerais</h3>
 <hr>
 <p></p>
 <p style="font-size: 18px">

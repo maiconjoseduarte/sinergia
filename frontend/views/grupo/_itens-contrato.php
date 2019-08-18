@@ -6,6 +6,6 @@ use yii\widgets\DetailView;
 /* @var $model frontend\models\Grupo */
 
 ?>
-<h3>Itens de Contrato</h3>
+<h3 class="box-title-grupo">Itens de Contrato</h3>
 <hr>
 <p></p>
