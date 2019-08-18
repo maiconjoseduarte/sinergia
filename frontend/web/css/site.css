@@ -118,3 +118,9 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+
+.btn-opcoes-grupo {
+    margin-top: 5px;
+    width: 99%;
+}

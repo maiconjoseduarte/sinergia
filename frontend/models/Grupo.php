@@ -16,8 +16,8 @@ use yii\db\Expression;
  * @property int $idGestor
  * @property int $idSuporte
  *
- * @property Contrato[] $contratos
- * @property Filial[] $filials
+ * @property Contrato $contrato
+ * @property Filial $filiais
  * @property Colaborador $gestor
  * @property Colaborador $suporte
  * @property Juridico[] $juridicos
@@ -92,15 +92,15 @@ class Grupo extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getContratos()
+    public function getContrato()
     {
-        return $this->hasMany(Contrato::className(), ['idGrupo' => 'id']);
+        return $this->hasMany(Contrato::className(), ['idGrupo' => 'id'])->one();
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getFilials()
+    public function getFiliais()
     {
         return $this->hasMany(Filial::className(), ['idGrupo' => 'id']);
     }

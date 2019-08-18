@@ -20,5 +20,7 @@ class Layout
     const BTN_SALVAR = 'btn btn-success btn-estilos';
     const BTN_VOLTAR = 'btn btn-default btn-estilos';
 
+    const BTN_OPCOES_GRUPO = 'btn btn-default btn-opcoes-grupo';
+
 
 }

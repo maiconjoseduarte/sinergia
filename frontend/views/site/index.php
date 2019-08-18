@@ -2,7 +2,9 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Contratos & Sinergia';
+
+echo "<h3 style='text-align: center; margin-top: 200px; font-size: 45px;'>{$this->title}</h3>";
 ?>
 
 
