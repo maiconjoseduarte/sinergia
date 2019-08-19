@@ -6,5 +6,6 @@ class Icones
 {
 
     const ADD = '<i class="mdi mdi-plus-circle btn-icon-prepend"></i>';
+    const FILE = 'fa fa-file';
 
 }

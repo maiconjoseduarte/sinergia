@@ -60,6 +60,25 @@ use yii\helpers\Url;
                     <i class="fa fa-th"></i> <span>Colaborador</span>
                 </a>
             </li>
+            <li class="header">Importação</li>
+
+            <li class="treeview menu-open">
+                <a href="#">
+                    <i class="fa fa-share"></i> <span>Importação</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu" style="display: block">
+                    <li>
+                        <a href=<?= Url::to(['importacao/importacao-grupo'])?>>
+                            <i class="fa fa-circle-o"></i> Grupo
+                        </a>
+                    </li>
+
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+                </ul>
+            </li>
 <!--            <li class="treeview">-->
 <!--                <a href="#">-->
 <!--                    <i class="fa fa-pie-chart"></i>-->
@@ -155,6 +174,7 @@ use yii\helpers\Url;
 <!--                    <li><a href="pages/examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>-->
 <!--                </ul>-->
 <!--            </li>-->
+            <li class="header">LABELS</li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-share"></i> <span>Multilevel</span>

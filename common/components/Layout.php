@@ -31,5 +31,13 @@ class Layout
 
     const BTN_OPCOES_GRUPO = 'btn btn-default btn-opcoes-grupo';
 
+    const GRID_STRIPED = true;
+    const GRID_HOVER = true;
+    const GRID_BORDERED = false;
+    const GRID_CONDENSED = false;
+    const GRID_PAJAX = false;
+    const GRID_RESPONSIVE = true;
+    const GRID_RESPONSIVE_WRAP = false;
+
 
 }
