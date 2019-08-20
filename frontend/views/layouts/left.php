@@ -76,6 +76,12 @@ use yii\helpers\Url;
                         </a>
                     </li>
 
+                    <li>
+                        <a href=<?= Url::to(['importacao/importacao-filial'])?>>
+                            <i class="fa fa-circle-o"></i> Filial
+                        </a>
+                    </li>
+
                     <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
                 </ul>
             </li>

@@ -1,11 +1,11 @@
 <?php
 
+use frontend\models\Grupo;
 use frontend\models\Importacao;
 use common\components\Icones;
+use frontend\models\ImportacaoFilial;
 use kartik\widgets\FileInput;
-use kartik\widgets\Select2;
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\web\JsExpression;
 use yii\widgets\ActiveForm;
 
@@ -24,61 +24,22 @@ $this->title = 'Importação';
         <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data', 'autocomplete' => 'off']]); ?>
 
         <div class="row">
+            <?php
+                if (
+                        $importacao instanceof ImportacaoFilial
+                ):
+            ?>
             <div class="col-sm-12 col-md-6 col-lg-6">
-<!--                --><?php //$form->field($importacao, 'idAdministradora')->widget(Select2::classname(), [
-//                    'initValueText' => $importacao->administradora->nome ?? null,
-//                    'options' => ['placeholder' => 'Selecione uma administradora'],
-//                    'pluginOptions' => [
-//                        'allowClear' => true,
-//                        'minimumInputLength' => 1,
-//                        'ajax' => [
-//                            'url' => Url::to(['/app/importacao/list-administradoras']),
-//                            'dataType' => 'json',
-//                            'delay' => 400,
-//                            'data' => new JsExpression('function(params) { return {query: params.term}; }'),
-//                            'cache' => true
-//                        ],
-//                        'escapeMarkup' => new JsExpression('function (markup) { return markup; }'),
-//                        'templateResult' => new JsExpression('function(administradora) { return administradora.text; }'),
-//                        'templateSelection' => new JsExpression('function (administradora) { return administradora.text; }'),
-//                    ],
-//                ]);
-                ?>
-            </div>
-<!--            --><?php
-//                if (
-//                        $importacao instanceof ImportacaoUnidade ||
-//                        $importacao instanceof ImportacaoInadimplentes ||
-//                        $importacao instanceof ImportacaoUnidadeMorador ||
-//                        $importacao instanceof \backend\models\ImportacaoAcordo
-//                ):
-//            ?>
-            <div class="col-sm-12 col-md-6 col-lg-6">
-                <?php
-
-//                $administradoraField = Html::getInputId($importacao, 'idAdministradora');
-//                echo $form->field($importacao, 'idCondominio')->widget(Select2::classname(), [
-//                    'initValueText' => $importacao->condominio->nome ?? null,
-//                    'options' => ['placeholder' => 'Selecione um condomínio'],
-//                    'pluginOptions' => [
-//                        'allowClear' => true,
-//                        'minimumInputLength' => 1,
-//                        'ajax' => [
-//                            'url' => Url::to(['/app/importacao/list-condominios']),
-//                            'dataType' => 'json',
-//                            'delay' => 400,
-//                            'data' => new JsExpression("function(params) { return {query: params.term, administradora: jQuery('#{$administradoraField}').val()}; }"),
-//                            'cache' => true
-//                        ],
-//                        'escapeMarkup' => new JsExpression('function (markup) { return markup; }'),
-//                        'templateResult' => new JsExpression('function(condominio) { return condominio.text; }'),
-//                        'templateSelection' => new JsExpression('function (condominio) { return condominio.text; }'),
-//                    ],
-//                ]);
-//                ?>
+                <?= $form->field($importacao, 'idGrupo')->widget(\kartik\select2\Select2::className(), [
+                    'data' => Grupo::select2Data(),
+                    'options' => ['placeholder' => 'Select a state ...'],
+                    'pluginOptions' => [
+                        'allowClear' => true
+                    ],
+                ]) ?>
             </div>
             <?php
-//                endif;
+                endif;
             ?>
         </div>
 

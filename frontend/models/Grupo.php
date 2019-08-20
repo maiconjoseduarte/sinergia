@@ -11,10 +11,11 @@ use yii\db\Expression;
  *
  * @property int $id
  * @property string $nome
- * @property string $create_at
- * @property string $update_at
+ * @property int $status
  * @property int $idGestor
  * @property int $idSuporte
+ * @property string $create_at
+ * @property string $update_at
  *
  * @property Contrato $contrato
  * @property Filial $filiais

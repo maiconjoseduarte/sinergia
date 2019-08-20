@@ -2,7 +2,6 @@
 
 namespace frontend\models;
 
-//use common\exceptions\FeedbackException;
 use common\exceptions\FeedbackException;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Reader\BaseReader;
@@ -36,10 +35,7 @@ abstract class Importacao extends Model
     const MASCARA_CEP = '%s%s%s%s%s-%s%s%s';
 
     /** @var integer */
-    public $idAdministradora;
-
-    /** @var integer */
-    public $idCondominio;
+    public $idGrupo;
 
     /** @var UploadedFile */
     public $arquivo;
@@ -69,19 +65,15 @@ abstract class Importacao extends Model
     {
         return [
             [['arquivo'], 'required'],
-//            [['idCondominio'], 'required',
-//                'when' => function() {
-//                    return $this instanceof ImportacaoUnidade ||
-//                        $this instanceof ImportacaoInadimplentes ||
-//                        $this instanceof ImportacaoUnidadeMorador ||
-//                        $this instanceof ImportacaoAcordo;
-//                }
-//            ],
+            [['idGrupo'], 'required',
+                'when' => function() {
+                    return $this instanceof ImportacaoFilial ;
+                }
+            ],
             [['continuarProcessamento'], 'default', 'value' => true],
             [['continuarProcessamento'], 'boolean', 'trueValue' => true, 'falseValue' => false],
             [['arquivo'], 'file', 'extensions' => ['xlsx', 'xlsm', 'xltx', 'xltm', 'xls', 'xlt', 'xlm', 'ods', 'ots'], 'maxSize' => 1024*1024*5, 'checkExtensionByMimeType' => false],
-//            [['idAdministradora'], 'exist', 'skipOnError' => true, 'targetClass' => Administradora::className(), 'targetAttribute' => ['idAdministradora' => 'id']],
-//            [['idCondominio'], 'exist', 'skipOnError' => true, 'targetClass' => Condominio::className(), 'targetAttribute' => ['idCondominio' => 'id']],
+            [['idGrupo'], 'exist', 'skipOnError' => true, 'targetClass' => Grupo::className(), 'targetAttribute' => ['idGrupo' => 'id']],
             [['formatacaoTexto'], 'in', 'range' => [self::IMPORTACAO_TEXTO_FORMATACAO_ORIGINAL, self::IMPORTACAO_TEXTO_FORMATACAO_PRIMEIRA_LETRA_MAIUSCULA]]
         ];
     }
@@ -97,8 +89,7 @@ abstract class Importacao extends Model
     public function attributeLabels()
     {
         return [
-            'idAdministradora' => 'Administradora',
-            'idCondominio' => 'Condomínio',
+            'idGrupo' => 'Grupo',
             'arquivo' => 'Arquivo',
             'tipoImportacao' => 'Tipo de importação',
             'formatacaoTexto' => 'Formatação do texto'
