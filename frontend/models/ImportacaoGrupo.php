@@ -7,6 +7,7 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
 class ImportacaoGrupo extends Importacao
 {
+    public $nome = 'Grupo';
     /**
      * Processa o arquivo de grupos
      *

@@ -4,9 +4,11 @@ namespace frontend\controllers;
 
 use common\exceptions\FeedbackException;
 use frontend\models\Grupo;
+use frontend\models\ImportacaoContrato;
 use frontend\models\ImportacaoFilial;
 use frontend\models\ImportacaoGrupo;
 use common\components\AuthController;
+use frontend\models\ImportacaoJuridico;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\web\Response;
@@ -59,6 +61,46 @@ class ImportacaoController extends AuthController
     public function actionImportacaoFilial()
     {
         $importacao = new ImportacaoFilial();
+
+        if (\Yii::$app->request->isPost && $importacao->load(\Yii::$app->request->post())) {
+            $importacao->arquivo = UploadedFile::getInstance($importacao, 'arquivo');
+            if ($importacao->validate()) {
+                try {
+                    $importacao->run();
+                } catch (FeedbackException $e) {
+                    \Yii::$app->session->addFlash('error', $e->getMessage());
+                }
+            } else {
+                \Yii::$app->session->addFlash('error', 'Erro ao validar importação, favor corrigir os erros apontados.');
+            }
+        }
+
+        return $this->render('importacao', ['importacao' => $importacao]);
+    }
+
+    public function actionImportacaoContrato()
+    {
+        $importacao = new ImportacaoContrato();
+
+        if (\Yii::$app->request->isPost && $importacao->load(\Yii::$app->request->post())) {
+            $importacao->arquivo = UploadedFile::getInstance($importacao, 'arquivo');
+            if ($importacao->validate()) {
+                try {
+                    $importacao->run();
+                } catch (FeedbackException $e) {
+                    \Yii::$app->session->addFlash('error', $e->getMessage());
+                }
+            } else {
+                \Yii::$app->session->addFlash('error', 'Erro ao validar importação, favor corrigir os erros apontados.');
+            }
+        }
+
+        return $this->render('importacao', ['importacao' => $importacao]);
+    }
+
+    public function actionImportacaoJuridico()
+    {
+        $importacao = new ImportacaoJuridico();
 
         if (\Yii::$app->request->isPost && $importacao->load(\Yii::$app->request->post())) {
             $importacao->arquivo = UploadedFile::getInstance($importacao, 'arquivo');

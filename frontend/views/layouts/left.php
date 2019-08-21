@@ -82,6 +82,18 @@ use yii\helpers\Url;
                         </a>
                     </li>
 
+                    <li>
+                        <a href=<?= Url::to(['importacao/importacao-contrato'])?>>
+                            <i class="fa fa-circle-o"></i> Contrato
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href=<?= Url::to(['importacao/importacao-juridico'])?>>
+                            <i class="fa fa-circle-o"></i> Jurídico
+                        </a>
+                    </li>
+
                     <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
                 </ul>
             </li>

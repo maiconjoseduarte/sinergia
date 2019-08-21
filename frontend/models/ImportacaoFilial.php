@@ -7,6 +7,7 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
 class ImportacaoFilial extends Importacao
 {
+    public $nome = 'Filiais';
     /**
      * Processa o arquivo de filiais
      *
@@ -46,12 +47,12 @@ class ImportacaoFilial extends Importacao
 
                 $this->processamentosSucesso[] = [
                     'linha' => $row->getRowIndex(),
-                    'mensagem' => "Grupo {$filial->nome} cadastrado com sucesso."
+                    'mensagem' => "Filial {$filial->nome} cadastrada com sucesso."
                 ];
 
                 $transaction->commit();
             } catch (\Exception $e) {
-                $mensagem = "Erro ao importar a filia.";
+                $mensagem = "Erro ao importar a filial.";
                 if ($e instanceof FeedbackException) {
                     $mensagem = $e->getMessage();
                 }

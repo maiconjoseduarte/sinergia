@@ -67,7 +67,9 @@ abstract class Importacao extends Model
             [['arquivo'], 'required'],
             [['idGrupo'], 'required',
                 'when' => function() {
-                    return $this instanceof ImportacaoFilial ;
+                    return $this instanceof ImportacaoFilial ||
+                       $this instanceof ImportacaoContrato ||
+                       $this instanceof ImportacaoJuridico;
                 }
             ],
             [['continuarProcessamento'], 'default', 'value' => true],

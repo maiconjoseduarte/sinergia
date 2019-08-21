@@ -3,7 +3,9 @@
 use frontend\models\Grupo;
 use frontend\models\Importacao;
 use common\components\Icones;
+use frontend\models\ImportacaoContrato;
 use frontend\models\ImportacaoFilial;
+use frontend\models\ImportacaoJuridico;
 use kartik\widgets\FileInput;
 use yii\helpers\Html;
 use yii\web\JsExpression;
@@ -12,7 +14,7 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $importacao Importacao */
 
-$this->title = 'Importação';
+$this->title = 'Importação '. $importacao->nome ?? null;
 ?>
 
 <div class="box">
@@ -26,13 +28,15 @@ $this->title = 'Importação';
         <div class="row">
             <?php
                 if (
-                        $importacao instanceof ImportacaoFilial
+                        $importacao instanceof ImportacaoFilial ||
+                        $importacao instanceof ImportacaoContrato ||
+                        $importacao instanceof ImportacaoJuridico
                 ):
             ?>
             <div class="col-sm-12 col-md-6 col-lg-6">
                 <?= $form->field($importacao, 'idGrupo')->widget(\kartik\select2\Select2::className(), [
                     'data' => Grupo::select2Data(),
-                    'options' => ['placeholder' => 'Select a state ...'],
+                    'options' => ['placeholder' => 'Selecione um grupo ...'],
                     'pluginOptions' => [
                         'allowClear' => true
                     ],
