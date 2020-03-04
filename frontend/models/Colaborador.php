@@ -36,7 +36,7 @@ class Colaborador extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id'], 'required'],
+            [['nome', 'cargo'], 'required'],
             [['id', 'cargo'], 'integer'],
             [['id'], 'unique'],
             [['nome'], 'string', 'max' => 255],
@@ -63,7 +63,7 @@ class Colaborador extends \yii\db\ActiveRecord
         $colaboradores = self::find();
 
         if ($cargo) {
-            $colaboradores = $colaboradores->andWhere(['cargo' => $cargo]);
+            $colaboradores = $colaboradores->andWhere(['cargo' => $cargo])->orderBy(['nome' => SORT_ASC]);
         }
 
         $colaboradores = $colaboradores->all();
@@ -71,7 +71,7 @@ class Colaborador extends \yii\db\ActiveRecord
         /** @var Colaborador[] $colaboradores */
         if ($colaboradores != null) {
             foreach ($colaboradores as $colaborador) {
-                $results[$colaborador->id] = "{$colaborador->id} - {$colaborador->nome}";
+                $results[$colaborador->id] = "{$colaborador->nome}";
             }
         }
 

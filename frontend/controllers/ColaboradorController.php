@@ -67,7 +67,10 @@ class ColaboradorController extends AuthController
         $model = new Colaborador();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+
+            Yii::$app->session->addFlash('success', 'Colaborador cadastrado com sucesso.');
+
+            return $this->redirect(['create']);
         }
 
         return $this->render('create', [

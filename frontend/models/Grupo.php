@@ -28,11 +28,13 @@ class Grupo extends \yii\db\ActiveRecord
     const CONTRATO = 1;
     const SINERGIA = 2;
     const IMCUBADORA = 3;
+    const ACORDO = 4;
 
     public static $OPCOES_STATUS = [
         self::CONTRATO => 'Contrato',
         self::SINERGIA => 'Sinergia',
         self::IMCUBADORA => 'Incubadora',
+        self::ACORDO => 'Acordo',
     ];
 
     /**

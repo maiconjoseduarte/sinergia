@@ -99,7 +99,9 @@ class GrupoController extends AuthController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            Yii::$app->session->addFlash('success', 'Grupo Atualizado com sucesso.');
+
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [

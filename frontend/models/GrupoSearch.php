@@ -87,6 +87,8 @@ class GrupoSearch extends Grupo
 
         $query->andFilterWhere(['like', 'nome', $this->nome]);
 
+        $query->orderBy(['nome' => SORT_ASC]);
+
         return $dataProvider;
     }
 }
