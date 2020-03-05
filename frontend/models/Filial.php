@@ -44,6 +44,7 @@ class Filial extends \yii\db\ActiveRecord
     {
         return [
             [['id', 'idGrupo', 'nome'], 'required'],
+            [['id'], 'unique'],
             [['id', 'idGrupo', 'codIsoWeb', 'codResponsavel', 'codSuporte', 'icms', 'ledTime'], 'integer'],
             [['create_at', 'update_at'], 'safe'],
             [['nome', 'especialidade'], 'string', 'max' => 255],
