@@ -57,7 +57,7 @@ $data = \frontend\models\Grupo::select2Data();
 
     <div class="row">
         <div class="col-md-3">
-            <?= $form->field($model, 'nomeSuporte')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'codSuporte')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-md-3">
             <?= $form->field($model, 'icms')->textInput() ?>

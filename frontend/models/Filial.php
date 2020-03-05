@@ -13,10 +13,10 @@ use Yii;
  * @property int $codIsoWeb
  * @property string $documento
  * @property string $uf
+ * @property string $nomeCidade
  * @property string $especialidade
  * @property int $codResponsavel
- * @property string $nomeResponsavel
- * @property string $nomeSuporte
+ * @property int $codSuporte
  * @property int $icms
  * @property string $cdFaturamento
  * @property int $ledTime
@@ -24,6 +24,8 @@ use Yii;
  * @property string $update_at
  *
  * @property Grupo $grupo
+ * @property Colaborador $responsavel
+ * @property Colaborador $suporte
  */
 class Filial extends \yii\db\ActiveRecord
 {
@@ -42,13 +44,16 @@ class Filial extends \yii\db\ActiveRecord
     {
         return [
             [['id', 'idGrupo', 'nome'], 'required'],
-            [['id', 'idGrupo', 'codIsoWeb', 'codResponsavel', 'icms', 'ledTime'], 'integer'],
+            [['id', 'idGrupo', 'codIsoWeb', 'codResponsavel', 'codSuporte', 'icms', 'ledTime'], 'integer'],
             [['create_at', 'update_at'], 'safe'],
-            [['nome', 'especialidade', 'nomeResponsavel', 'nomeSuporte'], 'string', 'max' => 255],
+            [['nome', 'especialidade'], 'string', 'max' => 255],
             [['documento'], 'string', 'max' => 20],
+            [['nomeCidade'], 'string', 'max' => 30],
             [['uf'], 'string', 'max' => 2],
             [['cdFaturamento'], 'string', 'max' => 5],
             [['idGrupo'], 'exist', 'skipOnError' => true, 'targetClass' => Grupo::className(), 'targetAttribute' => ['idGrupo' => 'id']],
+            [['codResponsavel'], 'exist', 'skipOnError' => true, 'targetClass' => Colaborador::className(), 'targetAttribute' => ['codResponsavel' => 'id']],
+            [['codSuporte'], 'exist', 'skipOnError' => true, 'targetClass' => Colaborador::className(), 'targetAttribute' => ['codSuporte' => 'id']],
         ];
     }
 
@@ -64,10 +69,10 @@ class Filial extends \yii\db\ActiveRecord
             'codIsoWeb' => 'Cod. Iso Web',
             'documento' => 'Documento',
             'uf' => 'Uf',
+            'nomeCidade' => 'Cidade',
             'especialidade' => 'Especialidade do cliente',
             'codResponsavel' => 'Cod. Responsavel',
-            'nomeResponsavel' => 'Nome Responsavel',
-            'nomeSuporte' => 'Nome Suporte',
+            'codSuporte' => 'Cod. Suporte',
             'icms' => 'Icms',
             'cdFaturamento' => 'Cd Faturamento',
             'ledTime' => 'Led Time',
@@ -82,5 +87,21 @@ class Filial extends \yii\db\ActiveRecord
     public function getGrupo()
     {
         return $this->hasOne(Grupo::className(), ['id' => 'idGrupo']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getResponsavel()
+    {
+        return $this->hasOne(Colaborador::className(), ['id' => 'codResponsavel']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSuporte()
+    {
+        return $this->hasOne(Colaborador::className(), ['id' => 'codSuporte']);
     }
 }

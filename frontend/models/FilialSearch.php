@@ -21,8 +21,8 @@ class FilialSearch extends Filial
     public function rules()
     {
         return [
-            [['id', 'idGrupo', 'codIsoWeb', 'codResponsavel', 'icms', 'ledTime'], 'integer'],
-            [['nome', 'documento', 'uf', 'especialidade', 'nomeResponsavel', 'nomeSuporte', 'cdFaturamento', 'create_at', 'update_at'], 'safe'],
+            [['id', 'idGrupo', 'codIsoWeb', 'codResponsavel', 'codSuporte', 'icms', 'ledTime'], 'integer'],
+            [['nome', 'documento', 'uf', 'especialidade', 'cdFaturamento', 'nomeCidade', 'create_at', 'update_at'], 'safe'],
             ['pageSize', 'in', 'range' => array_keys(self::$OPCOES_PAGINACAO)],
         ];
     }
@@ -77,6 +77,7 @@ class FilialSearch extends Filial
             'idGrupo' => $this->idGrupo,
             'codIsoWeb' => $this->codIsoWeb,
             'codResponsavel' => $this->codResponsavel,
+            'codSuporte' => $this->codSuporte,
             'icms' => $this->icms,
             'ledTime' => $this->ledTime,
             'create_at' => $this->create_at,
@@ -86,9 +87,8 @@ class FilialSearch extends Filial
         $query->andFilterWhere(['like', 'nome', $this->nome])
             ->andFilterWhere(['like', 'documento', $this->documento])
             ->andFilterWhere(['like', 'uf', $this->uf])
+            ->andFilterWhere(['like', 'nomeCidade', $this->nomeCidade])
             ->andFilterWhere(['like', 'especialidade', $this->especialidade])
-            ->andFilterWhere(['like', 'nomeResponsavel', $this->nomeResponsavel])
-            ->andFilterWhere(['like', 'nomeSuporte', $this->nomeSuporte])
             ->andFilterWhere(['like', 'cdFaturamento', $this->cdFaturamento]);
 
         return $dataProvider;
