@@ -74,7 +74,6 @@ class JuridicoSearch extends Juridico
             ->andFilterWhere(['like', 'minutaAditivo', $this->minutaAditivo])
             ->andFilterWhere(['like', 'statusAtual', $this->statusAtual])
             ->andFilterWhere(['like', 'comentario', $this->comentario])
-            ->andFilterWhere(['like', 'nomeResponsavel', $this->nomeResponsavel])
             ->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', 'telefone', $this->telefone]);
 

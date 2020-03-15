@@ -25,7 +25,6 @@ use yii\db\Expression;
  * @property string $tabela
  * @property int $icms
  * @property int $enquadramento
- * @property string $nomeGestor
  * @property string $create_at
  * @property string $update_at
  *
@@ -63,7 +62,7 @@ class Contrato extends \yii\db\ActiveRecord
             [['idGrupo', 'numeroLeitos', 'icms', 'enquadramento'], 'integer'],
             [['dataInicio', 'dataUltimaRenovacao', 'vencimento', 'create_at', 'update_at'], 'safe'],
             [['totalReceitaLiquidaInicio', 'margemBrutaPonderada', 'reajustePonderado', 'margemBrutaPonderadaRenovacao', 'totalReceitaLiquidaRenovacao', 'minimo'], 'number'],
-            [['condicaoPagamento', 'tabela', 'nomeGestor'], 'string', 'max' => 255],
+            [['condicaoPagamento', 'tabela'], 'string', 'max' => 255],
             [['idGrupo'], 'exist', 'skipOnError' => true, 'targetClass' => Grupo::className(), 'targetAttribute' => ['idGrupo' => 'id']],
         ];
     }
@@ -90,7 +89,6 @@ class Contrato extends \yii\db\ActiveRecord
             'tabela' => 'Tabela',
             'icms' => 'Icms',
             'enquadramento' => 'Enquadramento',
-            'nomeGestor' => 'Nome Gestor',
             'create_at' => 'Create At',
             'update_at' => 'Update At',
         ];

@@ -20,7 +20,6 @@ use yii\db\Expression;
  * @property string $minutaAditivo
  * @property string $statusAtual
  * @property string $comentario
- * @property string $nomeResponsavel
  * @property string $email
  * @property string $telefone
  * @property string $create_at
@@ -64,7 +63,7 @@ class Juridico extends \yii\db\ActiveRecord
             [['dataInicio', 'dataUltimaRenovacao', 'vencimento', 'create_at', 'update_at'], 'safe'],
             [['multa', 'juros'], 'number'],
             [['status', 'statusAtual'], 'string', 'max' => 20],
-            [['minutaAditivo', 'comentario', 'nomeResponsavel', 'email', 'telefone'], 'string', 'max' => 255],
+            [['minutaAditivo', 'comentario', 'email', 'telefone'], 'string', 'max' => 255],
             [['idGrupo'], 'exist', 'skipOnError' => true, 'targetClass' => Grupo::className(), 'targetAttribute' => ['idGrupo' => 'id']],
         ];
     }
@@ -86,7 +85,6 @@ class Juridico extends \yii\db\ActiveRecord
             'minutaAditivo' => 'Minuta Aditivo',
             'statusAtual' => 'Status Atual',
             'comentario' => 'Comentario',
-            'nomeResponsavel' => 'Nome Responsavel',
             'email' => 'Email',
             'telefone' => 'Telefone',
             'create_at' => 'Create At',

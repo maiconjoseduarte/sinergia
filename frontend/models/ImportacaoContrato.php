@@ -42,7 +42,6 @@ class ImportacaoContrato extends Importacao
                 $contrato->tabela = $this->getString($sheet, "M{$row->getRowIndex()}");
                 $contrato->icms = $this->getString($sheet, "N{$row->getRowIndex()}");
                 $contrato->enquadramento = $this->getString($sheet, "O{$row->getRowIndex()}");
-                $contrato->nomeGestor = $this->getString($sheet, "P{$row->getRowIndex()}");
 
                 if ($contrato->save() === false) {
                     throw new FeedbackException(sprintf('%s<br>%s', 'Erro ao salvar o contrato.', implode('<br>', $contrato->getFirstErrors())));

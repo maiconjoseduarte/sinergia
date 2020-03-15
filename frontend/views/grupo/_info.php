@@ -10,17 +10,13 @@ use yii\widgets\DetailView;
 <h3 class="box-title-grupo">Informações Gerais</h3>
 <hr>
 <p></p>
-<p style="font-size: 18px">
-    <span class="teste">Código corporativo <?= $model->id ?></span> <span class="teste">cliente <?= $model->nome ?></span> <span class="teste"> status <?= $model->status ?></span> <br>
-    <span class="teste">gestor <?= $model->gestor->nome ?? null ?> </span> <span class="teste"> suporte <?= $model->suporte->nome ?? null?> </span> <br>
-    <span class="teste">inicio contrato <?= $model->contrato->dataInicio ?> </span> <span class="teste"> reinicio XXXXXXXXXX</span> <span class="teste"> MB ponderada XXXXXXXXXX </span> <br>
-    <span class="teste">data renovação XXXXXXXXXX </span> <span class="teste"> vencimento XXXXXXXXXX </span> <br>
-    <span class="teste">rejuste ponderado XXXXXXXXXX</span> <span class="teste"> MB ponderada de renovação XXXXXXXXXX </span><br>
 
-    <span class="teste">ICMS XXXXXXXXXX</span> <span class="teste"> tabela XXXXXXXXXX </span> <span class="teste">enquadramento XXXXXXXXXX </span><br>
-    <span class="teste">cp XXXXXXXXXX</span> <span class="teste"> mínimo XXXXXXXXXX </span>
-</p>
 
+<?php
+if ($model->contrato == null) {
+    return ;
+}
+?>
     <br><br><br>
 
     <table class="table">

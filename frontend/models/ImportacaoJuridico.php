@@ -37,7 +37,6 @@ class ImportacaoJuridico extends Importacao
                 $juridico->minutaAditivo = $this->getString($sheet, "H{$row->getRowIndex()}");
                 $juridico->statusAtual = $this->getString($sheet, "I{$row->getRowIndex()}");
                 $juridico->comentario = $this->getString($sheet, "J{$row->getRowIndex()}");
-                $juridico->nomeResponsavel = $this->getString($sheet, "K{$row->getRowIndex()}");
                 $juridico->email = $this->getString($sheet, "L{$row->getRowIndex()}");
                 $juridico->telefone = $this->getString($sheet, "M{$row->getRowIndex()}");
 

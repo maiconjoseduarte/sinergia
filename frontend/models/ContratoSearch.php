@@ -78,8 +78,7 @@ class ContratoSearch extends Contrato
         ]);
 
         $query->andFilterWhere(['like', 'condicaoPagamento', $this->condicaoPagamento])
-            ->andFilterWhere(['like', 'tabela', $this->tabela])
-            ->andFilterWhere(['like', 'nomeGestor', $this->nomeGestor]);
+            ->andFilterWhere(['like', 'tabela', $this->tabela]);
 
         return $dataProvider;
     }
