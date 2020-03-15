@@ -200,7 +200,9 @@ abstract class Importacao extends Model
     protected function getDate(Worksheet $sheet, string $coordenada, $format = 'd/m/Y')
     {
         $date = trim($sheet->getCell($coordenada)->getValue());
-        return \DateTime::createFromFormat($format, $date);
+        $date = \DateTime::createFromFormat($format, $date);
+
+        return $date->format('Y-m-d');
     }
 
     /**

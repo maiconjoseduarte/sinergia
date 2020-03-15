@@ -30,6 +30,8 @@ class ImportacaoGrupo extends Importacao
                 $grupo->id = $this->getString($sheet, "A{$row->getRowIndex()}");
                 $grupo->nome = $this->getString($sheet, "B{$row->getRowIndex()}");
                 $grupo->status = $this->getString($sheet, "C{$row->getRowIndex()}");
+                $grupo->idGestor = $this->getString($sheet, "D{$row->getRowIndex()}");
+                $grupo->idSuporte = $this->getString($sheet, "E{$row->getRowIndex()}");
 
 
                 if ($grupo->save() === false) {

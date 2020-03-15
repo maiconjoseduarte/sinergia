@@ -27,12 +27,12 @@ class ImportacaoContrato extends Importacao
 
                 $contrato = new Contrato();
 
-                $contrato->idGrupo = $this->idGrupo;
-                $contrato->dataInicio = $this->getString($sheet, "B{$row->getRowIndex()}");
+                $contrato->idGrupo = $this->getString($sheet, "A{$row->getRowIndex()}");
+                $contrato->dataInicio = $this->getDate($sheet, "B{$row->getRowIndex()}");
                 $contrato->totalReceitaLiquidaInicio = $this->getString($sheet, "C{$row->getRowIndex()}");
                 $contrato->margemBrutaPonderada = $this->getString($sheet, "D{$row->getRowIndex()}");
-                $contrato->dataUltimaRenovacao = $this->getString($sheet, "E{$row->getRowIndex()}");
-                $contrato->vencimento = $this->getString($sheet, "F{$row->getRowIndex()}");
+                $contrato->dataUltimaRenovacao = $this->getDate($sheet, "E{$row->getRowIndex()}");
+                $contrato->vencimento = $this->getDate($sheet, "F{$row->getRowIndex()}");
                 $contrato->reajustePonderado = $this->getString($sheet, "G{$row->getRowIndex()}");
                 $contrato->margemBrutaPonderadaRenovacao = $this->getString($sheet, "H{$row->getRowIndex()}");
                 $contrato->totalReceitaLiquidaRenovacao = $this->getString($sheet, "I{$row->getRowIndex()}");
